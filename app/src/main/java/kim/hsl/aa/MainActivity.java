@@ -16,5 +16,13 @@ public class MainActivity extends AppCompatActivity {
         // 创建并执行异步任务
         mMyAsyncTask = new MyAsyncTask();
         mMyAsyncTask.execute();
+
+
+
     }
+
+    private void future(){
+
+    }
+
 }
