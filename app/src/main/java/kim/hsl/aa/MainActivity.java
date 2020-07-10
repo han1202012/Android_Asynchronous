@@ -31,7 +31,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void future(){
 
-        // 需要开发者传入 Callable 或者 Runnable 实现类对象
+        /*
+            FutureTask 间接实现了 Runnable 和 Future 接口 ,
+            可以得到子线程耗时操作的执行结果 , AsyncTask 异步任务就是使用了该机制 ;
+
+            需要开发者传入 Callable 或者 Runnable 实现类对象 , 在该对象中定义要在子线程中执行的操作
+         */
         FutureTask<String> futureTask = new FutureTask<String>(new MyCallable()){
             /**
              * 该方法在 MyCallable 的 call() 方法执行完毕后
