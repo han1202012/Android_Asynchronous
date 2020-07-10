@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         mMyAsyncTask.execute();
 
 
+        // 手写 AsyncTask
+        future();
 
     }
 
