@@ -80,8 +80,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.i(TAG, "延迟 2 秒执行 5 秒的任务 2执行完毕");
             }
         }, 2_000);
-
-
     }
 
     private void future(){
