@@ -44,15 +44,42 @@ public class MainActivity extends AppCompatActivity {
             需要等待之前的 定时器任务 执行完成 , 才能执行后面的任务
 
             TimerTask 实现了 Runnable 接口
+
+            延迟 1 秒执行任务 1 ( 任务 1 时长 5 秒 )
+            延迟 2 秒执行任务 2 ( 任务 2 时长 5 秒 )
+
+            Timer 执行任务是串行执行的 , 同一时间只能执行一个任务
+            任务 1 在 1 秒之后执行 , 在第 6 秒执行完毕
+            任务 2 在第 6 秒 , 任务 1 执行完毕后 , 才开始执行 , 在第 11 秒执行完毕
          */
 
-        // 延迟 1 秒执行任务
+        // 延迟 1 秒执行任务 1
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                Log.i(TAG, "延迟 1 秒执行任务");
+                Log.i(TAG, "延迟 1 秒执行 5 秒的任务 1 开始执行");
+                try {
+                    Thread.sleep(5_000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Log.i(TAG, "延迟 1 秒执行 5 秒的任务 1 执行完毕");
             }
         }, 1_000);
+
+        // 延迟 2 秒执行任务 2
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Log.i(TAG, "延迟 2 秒执行 5 秒的任务 2 开始执行");
+                try {
+                    Thread.sleep(5_000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Log.i(TAG, "延迟 2 秒执行 5 秒的任务 2执行完毕");
+            }
+        }, 2_000);
 
 
     }
