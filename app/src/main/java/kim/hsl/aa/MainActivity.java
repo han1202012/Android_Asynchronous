@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -28,6 +30,30 @@ public class MainActivity extends AppCompatActivity {
 
         // 手写 AsyncTask
         future();
+
+        // 定时器使用
+        timer();
+    }
+
+    private void timer(){
+        // Timer 可用于执行延迟任务或循环任务
+        Timer timer = new Timer();
+
+        /*
+            如果提交多个 TimerTask 定时器任务
+            需要等待之前的 定时器任务 执行完成 , 才能执行后面的任务
+
+            TimerTask 实现了 Runnable 接口
+         */
+
+        // 延迟 1 秒执行任务
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Log.i(TAG, "延迟 1 秒执行任务");
+            }
+        }, 1_000);
+
 
     }
 
